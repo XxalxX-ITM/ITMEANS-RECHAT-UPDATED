@@ -162,110 +162,210 @@ local matrixStructure = {
     {size = Vector3.new(1.2, 1.2, 1.2), offset = CFrame.new(2.5, -1.5, 2.5), isDetail = false}
 }
 
--- ==================== NEW GOD-LEVEL AURAS ====================
+-- ==================== NEW GOD-LEVEL AURAS (MASSIVE + BEHIND PLAYER) ====================
 local voidWingsStructure = {
-    -- Dark core
-    {size = Vector3.new(3, 3, 3), shape = Enum.PartType.Ball, offset = CFrame.new(0, 1, 0), isDetail = true},
-    {size = Vector3.new(4, 0.2, 4), offset = CFrame.new(0, 3.5, 0), isDetail = false},
-    {size = Vector3.new(3, 0.3, 3), offset = CFrame.new(0, 4.5, 0), isDetail = true},
-    -- Left wing (massive)
-    {size = Vector3.new(0.8, 6, 0.8), offset = CFrame.new(-2, 4, 0) * CFrame.Angles(0, 0, math.rad(-20)), isDetail = false},
-    {size = Vector3.new(0.8, 7, 0.8), offset = CFrame.new(-3.5, 5, 0) * CFrame.Angles(0, 0, math.rad(-30)), isDetail = false},
-    {size = Vector3.new(0.8, 8, 0.8), offset = CFrame.new(-5, 5.5, 0) * CFrame.Angles(0, 0, math.rad(-40)), isDetail = false},
-    {size = Vector3.new(0.8, 8, 0.8), offset = CFrame.new(-6.5, 5.5, 0) * CFrame.Angles(0, 0, math.rad(-50)), isDetail = false},
-    {size = Vector3.new(0.8, 7, 0.8), offset = CFrame.new(-8, 5, 0) * CFrame.Angles(0, 0, math.rad(-60)), isDetail = false},
-    {size = Vector3.new(0.8, 6, 0.8), offset = CFrame.new(-9, 4, 0) * CFrame.Angles(0, 0, math.rad(-70)), isDetail = false},
-    {size = Vector3.new(0.8, 5, 0.8), offset = CFrame.new(-9.5, 2.5, 0) * CFrame.Angles(0, 0, math.rad(-80)), isDetail = false},
-    -- Right wing
-    {size = Vector3.new(0.8, 6, 0.8), offset = CFrame.new(2, 4, 0) * CFrame.Angles(0, 0, math.rad(20)), isDetail = false},
-    {size = Vector3.new(0.8, 7, 0.8), offset = CFrame.new(3.5, 5, 0) * CFrame.Angles(0, 0, math.rad(30)), isDetail = false},
-    {size = Vector3.new(0.8, 8, 0.8), offset = CFrame.new(5, 5.5, 0) * CFrame.Angles(0, 0, math.rad(40)), isDetail = false},
-    {size = Vector3.new(0.8, 8, 0.8), offset = CFrame.new(6.5, 5.5, 0) * CFrame.Angles(0, 0, math.rad(50)), isDetail = false},
-    {size = Vector3.new(0.8, 7, 0.8), offset = CFrame.new(8, 5, 0) * CFrame.Angles(0, 0, math.rad(60)), isDetail = false},
-    {size = Vector3.new(0.8, 6, 0.8), offset = CFrame.new(9, 4, 0) * CFrame.Angles(0, 0, math.rad(70)), isDetail = false},
-    {size = Vector3.new(0.8, 5, 0.8), offset = CFrame.new(9.5, 2.5, 0) * CFrame.Angles(0, 0, math.rad(80)), isDetail = false},
-    -- Orbiting void balls
-    {size = Vector3.new(1.5, 1.5, 1.5), shape = Enum.PartType.Ball, offset = CFrame.new(7, 1.5, 2), isDetail = false},
-    {size = Vector3.new(1.5, 1.5, 1.5), shape = Enum.PartType.Ball, offset = CFrame.new(-7, 1.5, 2), isDetail = false},
-    {size = Vector3.new(1.5, 1.5, 1.5), shape = Enum.PartType.Ball, offset = CFrame.new(7, 1.5, -2), isDetail = false},
-    {size = Vector3.new(1.5, 1.5, 1.5), shape = Enum.PartType.Ball, offset = CFrame.new(-7, 1.5, -2), isDetail = false},
-    -- Bottom spikes
-    {size = Vector3.new(0.5, 4, 0.5), offset = CFrame.new(0, -1, 2) * CFrame.Angles(math.rad(30), 0, 0), isDetail = false},
-    {size = Vector3.new(0.5, 4, 0.5), offset = CFrame.new(0, -1, -2) * CFrame.Angles(math.rad(-30), 0, 0), isDetail = false},
-    {size = Vector3.new(0.5, 4, 0.5), offset = CFrame.new(2, -1, 0) * CFrame.Angles(0, 0, math.rad(30)), isDetail = false},
-    {size = Vector3.new(0.5, 4, 0.5), offset = CFrame.new(-2, -1, 0) * CFrame.Angles(0, 0, math.rad(-30)), isDetail = false},
-    -- Detail rings
-    {size = Vector3.new(5, 0.1, 5), offset = CFrame.new(0, 5.5, 0), isDetail = true},
-    {size = Vector3.new(6, 0.1, 6), offset = CFrame.new(0, 6.5, 0), isDetail = true}
+    -- Dark void core BEHIND player
+    {size = Vector3.new(7, 7, 7), shape = Enum.PartType.Ball, offset = CFrame.new(0, 3, 9), isDetail = true},
+    {size = Vector3.new(10, 0.5, 10), offset = CFrame.new(0, 5, 9), isDetail = false},
+    {size = Vector3.new(8, 0.5, 8), offset = CFrame.new(0, 6.5, 9), isDetail = true},
+    {size = Vector3.new(12, 0.4, 12), offset = CFrame.new(0, 4, 9), isDetail = false},
+
+    -- ===== MASSIVE LEFT WING (spreads left-back-up) =====
+    {size = Vector3.new(5, 6, 7), offset = CFrame.new(-5, 4, 8) * CFrame.Angles(0, math.rad(15), 0), isDetail = false},
+    {size = Vector3.new(5, 8, 9), offset = CFrame.new(-9, 5, 10) * CFrame.Angles(0, math.rad(25), 0), isDetail = false},
+    {size = Vector3.new(5, 10, 10), offset = CFrame.new(-13, 6, 12) * CFrame.Angles(0, math.rad(35), 0), isDetail = false},
+    {size = Vector3.new(5, 11, 11), offset = CFrame.new(-17, 6.5, 14) * CFrame.Angles(0, math.rad(45), 0), isDetail = false},
+    {size = Vector3.new(5, 10, 10), offset = CFrame.new(-21, 6, 16) * CFrame.Angles(0, math.rad(55), 0), isDetail = false},
+    {size = Vector3.new(5, 8, 9), offset = CFrame.new(-24, 5, 18) * CFrame.Angles(0, math.rad(65), 0), isDetail = false},
+    {size = Vector3.new(5, 6, 7), offset = CFrame.new(-27, 4, 19) * CFrame.Angles(0, math.rad(75), 0), isDetail = false},
+    -- Left wing tips (pointed)
+    {size = Vector3.new(4, 4, 5), offset = CFrame.new(-29, 2.5, 20) * CFrame.Angles(0, math.rad(85), 0), isDetail = true},
+    -- Left wing inner detail lines
+    {size = Vector3.new(5.5, 0.5, 11), offset = CFrame.new(-17, 6.5, 14) * CFrame.Angles(0, math.rad(45), 0), isDetail = true},
+    {size = Vector3.new(5.5, 0.5, 9), offset = CFrame.new(-9, 5, 10) * CFrame.Angles(0, math.rad(25), 0), isDetail = true},
+    {size = Vector3.new(5.5, 0.5, 10), offset = CFrame.new(-24, 5, 18) * CFrame.Angles(0, math.rad(65), 0), isDetail = true},
+
+    -- ===== MASSIVE RIGHT WING =====
+    {size = Vector3.new(5, 6, 7), offset = CFrame.new(5, 4, 8) * CFrame.Angles(0, math.rad(-15), 0), isDetail = false},
+    {size = Vector3.new(5, 8, 9), offset = CFrame.new(9, 5, 10) * CFrame.Angles(0, math.rad(-25), 0), isDetail = false},
+    {size = Vector3.new(5, 10, 10), offset = CFrame.new(13, 6, 12) * CFrame.Angles(0, math.rad(-35), 0), isDetail = false},
+    {size = Vector3.new(5, 11, 11), offset = CFrame.new(17, 6.5, 14) * CFrame.Angles(0, math.rad(-45), 0), isDetail = false},
+    {size = Vector3.new(5, 10, 10), offset = CFrame.new(21, 6, 16) * CFrame.Angles(0, math.rad(-55), 0), isDetail = false},
+    {size = Vector3.new(5, 8, 9), offset = CFrame.new(24, 5, 18) * CFrame.Angles(0, math.rad(-65), 0), isDetail = false},
+    {size = Vector3.new(5, 6, 7), offset = CFrame.new(27, 4, 19) * CFrame.Angles(0, math.rad(-75), 0), isDetail = false},
+    {size = Vector3.new(4, 4, 5), offset = CFrame.new(29, 2.5, 20) * CFrame.Angles(0, math.rad(-85), 0), isDetail = true},
+    -- Right wing inner detail lines
+    {size = Vector3.new(5.5, 0.5, 11), offset = CFrame.new(17, 6.5, 14) * CFrame.Angles(0, math.rad(-45), 0), isDetail = true},
+    {size = Vector3.new(5.5, 0.5, 9), offset = CFrame.new(9, 5, 10) * CFrame.Angles(0, math.rad(-25), 0), isDetail = true},
+    {size = Vector3.new(5.5, 0.5, 10), offset = CFrame.new(24, 5, 18) * CFrame.Angles(0, math.rad(-65), 0), isDetail = true},
+
+    -- ===== ORBITING VOID ORBS (massive) =====
+    {size = Vector3.new(3, 3, 3), shape = Enum.PartType.Ball, offset = CFrame.new(10, 3, 12), isDetail = false},
+    {size = Vector3.new(3, 3, 3), shape = Enum.PartType.Ball, offset = CFrame.new(-10, 3, 12), isDetail = false},
+    {size = Vector3.new(3.5, 3.5, 3.5), shape = Enum.PartType.Ball, offset = CFrame.new(14, 6, 15), isDetail = false},
+    {size = Vector3.new(3.5, 3.5, 3.5), shape = Enum.PartType.Ball, offset = CFrame.new(-14, 6, 15), isDetail = false},
+    {size = Vector3.new(2.5, 2.5, 2.5), shape = Enum.PartType.Ball, offset = CFrame.new(18, 8, 18), isDetail = true},
+    {size = Vector3.new(2.5, 2.5, 2.5), shape = Enum.PartType.Ball, offset = CFrame.new(-18, 8, 18), isDetail = true},
+    {size = Vector3.new(2, 2, 2), shape = Enum.PartType.Ball, offset = CFrame.new(0, 10, 15), isDetail = true},
+    {size = Vector3.new(2, 2, 2), shape = Enum.PartType.Ball, offset = CFrame.new(0, 12, 20), isDetail = true},
+
+    -- ===== TOP SPIKES / HORNS =====
+    {size = Vector3.new(2, 9, 2), offset = CFrame.new(-6, 9, 9) * CFrame.Angles(math.rad(-25), 0, math.rad(-25)), isDetail = false},
+    {size = Vector3.new(2, 9, 2), offset = CFrame.new(6, 9, 9) * CFrame.Angles(math.rad(-25), 0, math.rad(25)), isDetail = false},
+    {size = Vector3.new(2, 12, 2), offset = CFrame.new(0, 11, 10) * CFrame.Angles(math.rad(-20), 0, 0), isDetail = false},
+    {size = Vector3.new(1.5, 8, 1.5), offset = CFrame.new(-12, 10, 12) * CFrame.Angles(math.rad(-30), 0, math.rad(-40)), isDetail = true},
+    {size = Vector3.new(1.5, 8, 1.5), offset = CFrame.new(12, 10, 12) * CFrame.Angles(math.rad(-30), 0, math.rad(40)), isDetail = true},
+
+    -- ===== DETAIL RINGS =====
+    {size = Vector3.new(14, 0.4, 14), offset = CFrame.new(0, 8, 11), isDetail = true},
+    {size = Vector3.new(18, 0.4, 18), offset = CFrame.new(0, 10, 13), isDetail = true},
+    {size = Vector3.new(22, 0.4, 22), offset = CFrame.new(0, 12, 15), isDetail = true},
+    {size = Vector3.new(16, 0.5, 16), offset = CFrame.new(0, 2, 11) * CFrame.Angles(0, 0, math.rad(20)), isDetail = true},
+
+    -- ===== BOTTOM DRIP =====
+    {size = Vector3.new(1, 7, 1), offset = CFrame.new(-4, -2, 10) * CFrame.Angles(0, 0, math.rad(-15)), isDetail = false},
+    {size = Vector3.new(1, 7, 1), offset = CFrame.new(4, -2, 10) * CFrame.Angles(0, 0, math.rad(15)), isDetail = false},
+    {size = Vector3.new(1, 9, 1), offset = CFrame.new(0, -3, 10), isDetail = false},
+    {size = Vector3.new(1, 5, 1), offset = CFrame.new(-8, -1, 12) * CFrame.Angles(0, 0, math.rad(-25)), isDetail = true},
+    {size = Vector3.new(1, 5, 1), offset = CFrame.new(8, -1, 12) * CFrame.Angles(0, 0, math.rad(25)), isDetail = true},
 }
 
 local infernoKingStructure = {
-    -- Crown center
-    {size = Vector3.new(2, 0.5, 2), offset = CFrame.new(0, 4, 0), isDetail = true},
-    {size = Vector3.new(0.5, 3, 0.5), offset = CFrame.new(0, 5.5, 0), isDetail = false},
-    {size = Vector3.new(0.4, 2.5, 0.4), offset = CFrame.new(-1, 5, 0) * CFrame.Angles(0, 0, math.rad(15)), isDetail = false},
-    {size = Vector3.new(0.4, 2.5, 0.4), offset = CFrame.new(1, 5, 0) * CFrame.Angles(0, 0, math.rad(-15)), isDetail = false},
-    {size = Vector3.new(0.4, 2.5, 0.4), offset = CFrame.new(0, 5, -1) * CFrame.Angles(math.rad(15), 0, 0), isDetail = false},
-    {size = Vector3.new(0.4, 2.5, 0.4), offset = CFrame.new(0, 5, 1) * CFrame.Angles(math.rad(-15), 0, 0), isDetail = false},
-    -- Outer fire rings
-    {size = Vector3.new(6, 0.2, 6), offset = CFrame.new(0, 3, 0), isDetail = false},
-    {size = Vector3.new(5, 0.3, 5), offset = CFrame.new(0, 3.5, 0), isDetail = true},
-    {size = Vector3.new(7, 0.2, 7), offset = CFrame.new(0, 2.5, 0), isDetail = false},
-    {size = Vector3.new(4, 0.3, 4), offset = CFrame.new(0, 4.5, 0), isDetail = true},
-    -- Fire spikes
-    {size = Vector3.new(0.8, 3, 0.8), offset = CFrame.new(3, 2.5, 0) * CFrame.Angles(0, 0, math.rad(45)), isDetail = false},
-    {size = Vector3.new(0.8, 3, 0.8), offset = CFrame.new(-3, 2.5, 0) * CFrame.Angles(0, 0, math.rad(-45)), isDetail = false},
-    {size = Vector3.new(0.8, 3, 0.8), offset = CFrame.new(0, 2.5, 3) * CFrame.Angles(math.rad(-45), 0, 0), isDetail = false},
-    {size = Vector3.new(0.8, 3, 0.8), offset = CFrame.new(0, 2.5, -3) * CFrame.Angles(math.rad(45), 0, 0), isDetail = false},
-    {size = Vector3.new(0.8, 3, 0.8), offset = CFrame.new(2.1, 2.5, 2.1) * CFrame.Angles(math.rad(-45), 0, math.rad(45)), isDetail = false},
-    {size = Vector3.new(0.8, 3, 0.8), offset = CFrame.new(-2.1, 2.5, 2.1) * CFrame.Angles(math.rad(-45), 0, math.rad(-45)), isDetail = false},
-    {size = Vector3.new(0.8, 3, 0.8), offset = CFrame.new(2.1, 2.5, -2.1) * CFrame.Angles(math.rad(45), 0, math.rad(45)), isDetail = false},
-    {size = Vector3.new(0.8, 3, 0.8), offset = CFrame.new(-2.1, 2.5, -2.1) * CFrame.Angles(math.rad(45), 0, math.rad(-45)), isDetail = false},
-    -- Bottom base
-    {size = Vector3.new(2, 0.5, 2), offset = CFrame.new(0, 0, 0), isDetail = true},
-    {size = Vector3.new(3, 0.3, 3), offset = CFrame.new(0, -0.5, 0), isDetail = false},
-    {size = Vector3.new(1.5, 3, 1.5), offset = CFrame.new(0, 1, 0), isDetail = true},
-    -- Top spire
-    {size = Vector3.new(0.3, 4, 0.3), offset = CFrame.new(0, 6.5, 0), isDetail = true},
-    {size = Vector3.new(0.5, 0.5, 0.5), shape = Enum.PartType.Ball, offset = CFrame.new(0, 7, 0), isDetail = false}
+    -- ===== MASSIVE FIERY THRONE BEHIND PLAYER =====
+    -- Back wall of throne
+    {size = Vector3.new(24, 20, 2), offset = CFrame.new(0, 5, 14), isDetail = false},
+    {size = Vector3.new(22, 18, 0.5), offset = CFrame.new(0, 5, 14.5), isDetail = true},
+    {size = Vector3.new(20, 16, 0.5), offset = CFrame.new(0, 5, 15), isDetail = false},
+    -- Side pillars (left)
+    {size = Vector3.new(3, 22, 3), offset = CFrame.new(-12, 4, 13), isDetail = false},
+    {size = Vector3.new(2.5, 18, 2.5), offset = CFrame.new(-12, 4, 13), isDetail = true},
+    {size = Vector3.new(3, 20, 3), offset = CFrame.new(-11, 3, 9), isDetail = false},
+    {size = Vector3.new(2.5, 16, 2.5), offset = CFrame.new(-11, 3, 9), isDetail = true},
+    -- Side pillars (right)
+    {size = Vector3.new(3, 22, 3), offset = CFrame.new(12, 4, 13), isDetail = false},
+    {size = Vector3.new(2.5, 18, 2.5), offset = CFrame.new(12, 4, 13), isDetail = true},
+    {size = Vector3.new(3, 20, 3), offset = CFrame.new(11, 3, 9), isDetail = false},
+    {size = Vector3.new(2.5, 16, 2.5), offset = CFrame.new(11, 3, 9), isDetail = true},
+
+    -- ===== FIRE SPIKE WALL =====
+    {size = Vector3.new(3, 12, 3), offset = CFrame.new(-8, 10, 14) * CFrame.Angles(0, 0, math.rad(-15)), isDetail = false},
+    {size = Vector3.new(3, 14, 3), offset = CFrame.new(-4, 11, 14) * CFrame.Angles(0, 0, math.rad(-8)), isDetail = false},
+    {size = Vector3.new(3, 16, 3), offset = CFrame.new(0, 12, 14), isDetail = false},
+    {size = Vector3.new(3, 14, 3), offset = CFrame.new(4, 11, 14) * CFrame.Angles(0, 0, math.rad(8)), isDetail = false},
+    {size = Vector3.new(3, 12, 3), offset = CFrame.new(8, 10, 14) * CFrame.Angles(0, 0, math.rad(15)), isDetail = false},
+    -- Top spikes
+    {size = Vector3.new(2, 10, 2), offset = CFrame.new(-6, 15, 15) * CFrame.Angles(math.rad(-15), 0, math.rad(-12)), isDetail = true},
+    {size = Vector3.new(2, 12, 2), offset = CFrame.new(0, 16, 15) * CFrame.Angles(math.rad(-15), 0, 0), isDetail = true},
+    {size = Vector3.new(2, 10, 2), offset = CFrame.new(6, 15, 15) * CFrame.Angles(math.rad(-15), 0, math.rad(12)), isDetail = true},
+
+    -- ===== THRONE SEAT =====
+    {size = Vector3.new(16, 1, 8), offset = CFrame.new(0, 0, 10), isDetail = false},
+    {size = Vector3.new(14, 0.5, 7), offset = CFrame.new(0, 0.5, 10), isDetail = true},
+    {size = Vector3.new(3, 4, 3), offset = CFrame.new(-6, 2, 12), isDetail = false},
+    {size = Vector3.new(3, 4, 3), offset = CFrame.new(6, 2, 12), isDetail = false},
+    -- Throne arm rests
+    {size = Vector3.new(2, 1, 8), offset = CFrame.new(-7, 3, 10), isDetail = true},
+    {size = Vector3.new(2, 1, 8), offset = CFrame.new(7, 3, 10), isDetail = true},
+    {size = Vector3.new(2, 0.5, 2), offset = CFrame.new(-7, 4, 13), isDetail = false},
+    {size = Vector3.new(2, 0.5, 2), offset = CFrame.new(7, 4, 13), isDetail = false},
+
+    -- ===== FIRE RINGS AROUND =====
+    {size = Vector3.new(26, 0.5, 26), offset = CFrame.new(0, 1, 10), isDetail = true},
+    {size = Vector3.new(30, 0.5, 30), offset = CFrame.new(0, 0, 10), isDetail = false},
+    {size = Vector3.new(20, 0.5, 20), offset = CFrame.new(0, 2, 10), isDetail = true},
+
+    -- ===== GIANT CROWN ON TOP =====
+    {size = Vector3.new(14, 1.5, 14), offset = CFrame.new(0, 18, 12), isDetail = true},
+    {size = Vector3.new(2, 6, 2), offset = CFrame.new(0, 21, 12), isDetail = false},
+    {size = Vector3.new(1.5, 5, 1.5), offset = CFrame.new(-4, 20.5, 12) * CFrame.Angles(0, 0, math.rad(15)), isDetail = false},
+    {size = Vector3.new(1.5, 5, 1.5), offset = CFrame.new(4, 20.5, 12) * CFrame.Angles(0, 0, math.rad(-15)), isDetail = false},
+    {size = Vector3.new(1.5, 5, 1.5), offset = CFrame.new(0, 20.5, 8) * CFrame.Angles(math.rad(15), 0, 0), isDetail = false},
+    {size = Vector3.new(1.5, 5, 1.5), offset = CFrame.new(0, 20.5, 16) * CFrame.Angles(math.rad(-15), 0, 0), isDetail = false},
+    {size = Vector3.new(2, 2, 2), shape = Enum.PartType.Ball, offset = CFrame.new(0, 23, 12), isDetail = true},
+    {size = Vector3.new(1.5, 1.5, 1.5), shape = Enum.PartType.Ball, offset = CFrame.new(-4, 22.5, 12), isDetail = true},
+    {size = Vector3.new(1.5, 1.5, 1.5), shape = Enum.PartType.Ball, offset = CFrame.new(4, 22.5, 12), isDetail = true},
+
+    -- ===== ORBITING FIREBALLS =====
+    {size = Vector3.new(2.5, 2.5, 2.5), shape = Enum.PartType.Ball, offset = CFrame.new(15, 8, 10), isDetail = false},
+    {size = Vector3.new(2.5, 2.5, 2.5), shape = Enum.PartType.Ball, offset = CFrame.new(-15, 8, 10), isDetail = false},
+    {size = Vector3.new(2, 2, 2), shape = Enum.PartType.Ball, offset = CFrame.new(15, 12, 14), isDetail = true},
+    {size = Vector3.new(2, 2, 2), shape = Enum.PartType.Ball, offset = CFrame.new(-15, 12, 14), isDetail = true},
+    {size = Vector3.new(3, 3, 3), shape = Enum.PartType.Ball, offset = CFrame.new(0, 6, 18), isDetail = false},
 }
 
 local cosmicGodStructure = {
-    -- Core sun
-    {size = Vector3.new(2, 2, 2), shape = Enum.PartType.Ball, offset = CFrame.new(0, 2, 0), isDetail = false},
-    {size = Vector3.new(3, 3, 3), shape = Enum.PartType.Ball, offset = CFrame.new(0, 2, 0), isDetail = true},
-    -- Ring 1
-    {size = Vector3.new(6, 0.2, 6), offset = CFrame.new(0, 2, 0), isDetail = false},
-    {size = Vector3.new(6.5, 0.1, 6.5), offset = CFrame.new(0, 2, 0), isDetail = true},
-    -- Ring 2 tilted
-    {size = Vector3.new(8, 0.2, 8), offset = CFrame.new(0, 2, 0) * CFrame.Angles(math.rad(30), 0, 0), isDetail = false},
-    {size = Vector3.new(8.5, 0.1, 8.5), offset = CFrame.new(0, 2, 0) * CFrame.Angles(math.rad(30), 0, 0), isDetail = true},
-    -- Ring 3
-    {size = Vector3.new(7, 0.2, 7), offset = CFrame.new(0, 2, 0) * CFrame.Angles(0, 0, math.rad(45)), isDetail = false},
-    -- Orbiting planets
-    {size = Vector3.new(0.8, 0.8, 0.8), shape = Enum.PartType.Ball, offset = CFrame.new(4, 2, 0), isDetail = false},
-    {size = Vector3.new(0.6, 0.6, 0.6), shape = Enum.PartType.Ball, offset = CFrame.new(-4, 2, 0), isDetail = false},
-    {size = Vector3.new(1, 1, 1), shape = Enum.PartType.Ball, offset = CFrame.new(0, 2, 4), isDetail = false},
-    {size = Vector3.new(0.7, 0.7, 0.7), shape = Enum.PartType.Ball, offset = CFrame.new(0, 2, -4), isDetail = false},
-    {size = Vector3.new(0.9, 0.9, 0.9), shape = Enum.PartType.Ball, offset = CFrame.new(3, 2, 3), isDetail = false},
-    {size = Vector3.new(0.7, 0.7, 0.7), shape = Enum.PartType.Ball, offset = CFrame.new(-3, 2, 3), isDetail = false},
-    {size = Vector3.new(0.9, 0.9, 0.9), shape = Enum.PartType.Ball, offset = CFrame.new(3, 2, -3), isDetail = false},
-    {size = Vector3.new(0.7, 0.7, 0.7), shape = Enum.PartType.Ball, offset = CFrame.new(-3, 2, -3), isDetail = false},
-    -- Upper halo
-    {size = Vector3.new(4, 0.2, 4), offset = CFrame.new(0, 5, 0), isDetail = false},
-    {size = Vector3.new(3, 0.3, 3), offset = CFrame.new(0, 5.5, 0), isDetail = true},
-    {size = Vector3.new(0.6, 0.6, 0.6), shape = Enum.PartType.Ball, offset = CFrame.new(0, 6, 0), isDetail = false},
-    -- Bottom pillars
-    {size = Vector3.new(0.5, 3, 0.5), offset = CFrame.new(1.5, -0.5, 1.5) * CFrame.Angles(0, 0, math.rad(-20)), isDetail = true},
-    {size = Vector3.new(0.5, 3, 0.5), offset = CFrame.new(-1.5, -0.5, 1.5) * CFrame.Angles(0, 0, math.rad(20)), isDetail = true},
-    {size = Vector3.new(0.5, 3, 0.5), offset = CFrame.new(1.5, -0.5, -1.5) * CFrame.Angles(0, 0, math.rad(-20)), isDetail = true},
-    {size = Vector3.new(0.5, 3, 0.5), offset = CFrame.new(-1.5, -0.5, -1.5) * CFrame.Angles(0, 0, math.rad(20)), isDetail = true},
-    -- Sparkles
-    {size = Vector3.new(0.3, 0.3, 0.3), shape = Enum.PartType.Ball, offset = CFrame.new(5, 3, 0), isDetail = true},
-    {size = Vector3.new(0.3, 0.3, 0.3), shape = Enum.PartType.Ball, offset = CFrame.new(-5, 3, 0), isDetail = true},
-    {size = Vector3.new(0.3, 0.3, 0.3), shape = Enum.PartType.Ball, offset = CFrame.new(0, 3, 5), isDetail = true},
-    {size = Vector3.new(0.3, 0.3, 0.3), shape = Enum.PartType.Ball, offset = CFrame.new(0, 3, -5), isDetail = true}
+    -- ===== MASSIVE COSMIC NEXUS BEHIND PLAYER =====
+    -- Core sun (huge)
+    {size = Vector3.new(8, 8, 8), shape = Enum.PartType.Ball, offset = CFrame.new(0, 4, 12), isDetail = false},
+    {size = Vector3.new(10, 10, 10), shape = Enum.PartType.Ball, offset = CFrame.new(0, 4, 12), isDetail = true},
+    {size = Vector3.new(12, 12, 12), shape = Enum.PartType.Ball, offset = CFrame.new(0, 4, 12), isDetail = false},
+
+    -- ===== RING 1 (Horizontal, biggest) =====
+    {size = Vector3.new(30, 0.6, 30), offset = CFrame.new(0, 4, 12), isDetail = false},
+    {size = Vector3.new(32, 0.3, 32), offset = CFrame.new(0, 4, 12), isDetail = true},
+    {size = Vector3.new(28, 0.5, 28), offset = CFrame.new(0, 4.5, 12), isDetail = false},
+    {size = Vector3.new(26, 0.3, 26), offset = CFrame.new(0, 3.5, 12), isDetail = true},
+
+    -- ===== RING 2 (Tilted 30deg) =====
+    {size = Vector3.new(36, 0.6, 36), offset = CFrame.new(0, 4, 12) * CFrame.Angles(math.rad(30), 0, 0), isDetail = false},
+    {size = Vector3.new(38, 0.3, 38), offset = CFrame.new(0, 4, 12) * CFrame.Angles(math.rad(30), 0, 0), isDetail = true},
+
+    -- ===== RING 3 (Tilted -30deg) =====
+    {size = Vector3.new(34, 0.6, 34), offset = CFrame.new(0, 4, 12) * CFrame.Angles(math.rad(-30), 0, 0), isDetail = false},
+    {size = Vector3.new(36, 0.3, 36), offset = CFrame.new(0, 4, 12) * CFrame.Angles(math.rad(-30), 0, 0), isDetail = true},
+
+    -- ===== RING 4 (Vertical) =====
+    {size = Vector3.new(24, 0.6, 24), offset = CFrame.new(0, 4, 12) * CFrame.Angles(0, 0, math.rad(90)), isDetail = false},
+    {size = Vector3.new(26, 0.3, 26), offset = CFrame.new(0, 4, 12) * CFrame.Angles(0, 0, math.rad(90)), isDetail = true},
+
+    -- ===== RING 5 (Diagonal) =====
+    {size = Vector3.new(40, 0.5, 40), offset = CFrame.new(0, 4, 12) * CFrame.Angles(math.rad(45), math.rad(45), 0), isDetail = false},
+    {size = Vector3.new(42, 0.25, 42), offset = CFrame.new(0, 4, 12) * CFrame.Angles(math.rad(45), math.rad(45), 0), isDetail = true},
+
+    -- ===== MASSIVE ORBITING PLANETS =====
+    -- Inner planets
+    {size = Vector3.new(2.5, 2.5, 2.5), shape = Enum.PartType.Ball, offset = CFrame.new(11, 4, 12), isDetail = false},
+    {size = Vector3.new(2.5, 2.5, 2.5), shape = Enum.PartType.Ball, offset = CFrame.new(-11, 4, 12), isDetail = false},
+    {size = Vector3.new(2.5, 2.5, 2.5), shape = Enum.PartType.Ball, offset = CFrame.new(0, 4, 23), isDetail = false},
+    {size = Vector3.new(2.5, 2.5, 2.5), shape = Enum.PartType.Ball, offset = CFrame.new(0, 4, 1), isDetail = false},
+    -- Middle planets
+    {size = Vector3.new(3, 3, 3), shape = Enum.PartType.Ball, offset = CFrame.new(15, 8, 15), isDetail = false},
+    {size = Vector3.new(3, 3, 3), shape = Enum.PartType.Ball, offset = CFrame.new(-15, 8, 15), isDetail = false},
+    {size = Vector3.new(3, 3, 3), shape = Enum.PartType.Ball, offset = CFrame.new(15, 0, 15), isDetail = false},
+    {size = Vector3.new(3, 3, 3), shape = Enum.PartType.Ball, offset = CFrame.new(-15, 0, 15), isDetail = false},
+    -- Outer giant planets
+    {size = Vector3.new(4, 4, 4), shape = Enum.PartType.Ball, offset = CFrame.new(20, 6, 12), isDetail = true},
+    {size = Vector3.new(4, 4, 4), shape = Enum.PartType.Ball, offset = CFrame.new(-20, 6, 12), isDetail = true},
+    {size = Vector3.new(3.5, 3.5, 3.5), shape = Enum.PartType.Ball, offset = CFrame.new(0, 10, 20), isDetail = true},
+    {size = Vector3.new(3.5, 3.5, 3.5), shape = Enum.PartType.Ball, offset = CFrame.new(0, -1, 20), isDetail = true},
+
+    -- ===== SPARKLE STARS =====
+    {size = Vector3.new(1, 1, 1), shape = Enum.PartType.Ball, offset = CFrame.new(22, 3, 20), isDetail = true},
+    {size = Vector3.new(1, 1, 1), shape = Enum.PartType.Ball, offset = CFrame.new(-22, 3, 20), isDetail = true},
+    {size = Vector3.new(1, 1, 1), shape = Enum.PartType.Ball, offset = CFrame.new(22, 8, 5), isDetail = true},
+    {size = Vector3.new(1, 1, 1), shape = Enum.PartType.Ball, offset = CFrame.new(-22, 8, 5), isDetail = true},
+    {size = Vector3.new(1.5, 1.5, 1.5), shape = Enum.PartType.Ball, offset = CFrame.new(0, 15, 15), isDetail = true},
+    {size = Vector3.new(1.5, 1.5, 1.5), shape = Enum.PartType.Ball, offset = CFrame.new(0, -5, 15), isDetail = true},
+
+    -- ===== COSMIC PILLARS =====
+    {size = Vector3.new(1.5, 14, 1.5), offset = CFrame.new(8, -2, 14) * CFrame.Angles(0, 0, math.rad(-15)), isDetail = false},
+    {size = Vector3.new(1.5, 14, 1.5), offset = CFrame.new(-8, -2, 14) * CFrame.Angles(0, 0, math.rad(15)), isDetail = false},
+    {size = Vector3.new(1.5, 16, 1.5), offset = CFrame.new(0, -3, 14), isDetail = false},
+    {size = Vector3.new(2, 2, 2), shape = Enum.PartType.Ball, offset = CFrame.new(8, -8, 14), isDetail = true},
+    {size = Vector3.new(2, 2, 2), shape = Enum.PartType.Ball, offset = CFrame.new(-8, -8, 14), isDetail = true},
+    {size = Vector3.new(2, 2, 2), shape = Enum.PartType.Ball, offset = CFrame.new(0, -10, 14), isDetail = true},
+
+    -- ===== UPPER HALO =====
+    {size = Vector3.new(10, 0.5, 10), offset = CFrame.new(0, 16, 12), isDetail = false},
+    {size = Vector3.new(8, 0.5, 8), offset = CFrame.new(0, 17, 12), isDetail = true},
+    {size = Vector3.new(3, 3, 3), shape = Enum.PartType.Ball, offset = CFrame.new(0, 18, 12), isDetail = false},
+    {size = Vector3.new(1.5, 1.5, 1.5), shape = Enum.PartType.Ball, offset = CFrame.new(0, 20, 12), isDetail = true},
+
+    -- ===== DETAIL ACCENTS =====
+    {size = Vector3.new(6, 0.3, 6), offset = CFrame.new(0, 4, 12) * CFrame.Angles(math.rad(60), math.rad(60), 0), isDetail = true},
+    {size = Vector3.new(6, 0.3, 6), offset = CFrame.new(0, 4, 12) * CFrame.Angles(math.rad(-60), math.rad(-60), 0), isDetail = true},
 }
+    
 
 local AuraRegistry = {
     ["mecha"] = partsStructure,
